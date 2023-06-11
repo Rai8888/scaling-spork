@@ -1,9 +1,16 @@
+import Navbar from './components/Navbar'
+import { Routes, Route } from "react-router-dom";
 import './App.css';
+import HomeScreen from "./screens/HomeScreen";
+import Bookingscreen from "./screens/Bookingscreen";
 
 function App() {
     return <div className="App">
-        <h1>Hotel Booking</h1>
-        <button className="btn btn-primary"></button>
+        <Navbar />
+        <Routes>
+            <Route path="/booking" element={<HomeScreen />} />
+            <Route path="/booking/:roomid" component={Bookingscreen} />
+        </Routes>
     </div>;
 }
 
