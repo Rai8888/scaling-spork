@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Room from '../components/Room';
+import Loader from '../components/Loader';
+import Error from '../components/Error'
 
 const HomeScreen = () => {
   const [rooms, setRooms] = useState([]);
@@ -30,15 +32,17 @@ const HomeScreen = () => {
     <div className='container'>
       <div className='row justify-content-center mt-5'>
         {loading ? (
-          <h1>Loading....</h1>
-        ) : error ? (
-          <h1>Error</h1>
-        ) : (
-          rooms.map(( room ) => {
-            return <div className='col-md-9 mt-2'>
-                 <Room room={room}/>
-            </div>;
+          <Loader />
+        ) : rooms.length > 1  ? (
+          rooms.map((room) => {
+            return (
+              <div className='col-md-9 mt-3'>
+                <Room room={room} />
+              </div>
+            );
           })
+        ) : (
+          <Error />
         )}
       </div>
     </div>
@@ -46,3 +50,4 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
+
