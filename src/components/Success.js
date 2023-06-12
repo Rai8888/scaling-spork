@@ -9,7 +9,7 @@ const Success = ({ message }) => {
     MySwal.fire({
       icon: 'success',
       title: 'Success!',
-      text: message, 
+      text: message
     });
   }, []);
 

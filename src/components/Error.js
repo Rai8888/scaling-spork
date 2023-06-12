@@ -6,15 +6,19 @@ const MySwal = withReactContent(Swal);
 
 const Error = () => {
   useEffect(() => {
+    showErrorMessage();
+  }, []);
+
+  const showErrorMessage = () => {
     MySwal.fire({
       icon: 'error',
       title: 'Oops...',
       text: 'Something went wrong!'
     });
-  }, []);
+  };
 
-  return <div></div>;
-}
+  return null;
+};
 
 export default Error;
 
