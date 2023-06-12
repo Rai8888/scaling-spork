@@ -1,4 +1,4 @@
-function Navbar() {
+const Navbar = () => {
   return (
     <div>
       <nav className='navbar navbar-expand-lg'>
