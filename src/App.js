@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomeScreen from './screens/HomeScreen';
 import BookingScreen from './screens/BookingScreen';
-import RegisterScreen from './screens/RegisterScreen';
+import RegisterScreen from './screens/RegisteScreen';
 import LoginScreen from './screens/LoginScreen';
 import './App.css';
 
