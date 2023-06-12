@@ -4,12 +4,12 @@ import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
-const Success = () => {
+const Success = ({ message }) => {
   useEffect(() => {
     MySwal.fire({
       icon: 'success',
       title: 'Success!',
-      text: 'Good job!'
+      text: message, 
     });
   }, []);
 
@@ -17,4 +17,3 @@ const Success = () => {
 };
 
 export default Success;
-
