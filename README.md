@@ -8,7 +8,6 @@ This is a React application for hotel room booking. It provides a user-friendly 
 - View room details and photos
 - Make bookings for selected rooms
 - User registration and login functionality
-[- Responsive design for mobile and desktop devices]: #
 
 ## Installation
 
