@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
@@ -20,7 +20,6 @@ const BookingScreen = ({ match }) => {
         setError(true);
       }
     };
-
     fetchData();
   }, [match.params.roomid]);
 

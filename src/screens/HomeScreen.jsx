@@ -2,47 +2,47 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Room from '../components/Room';
 import Loader from '../components/Loader';
-import Error from '../components/Error'
+import Error from '../components/Error';
 
 const HomeScreen = () => {
-  const [rooms, setRooms] = useState([]);
-  const [loading, setLoading] = useState();
-  const [error, setError] = useState();
+  const [roomsData, setRoomsData] = useState({
+    rooms: [],
+    loading: true,
+    error: false,
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
         const response = await axios.get('https://jsonplaceholder.typicode.com/photos');
         const data = response.data;
-        console.log(data);
-        setRooms(data);
-        setLoading(false);
+        setRoomsData({ rooms: data, loading: false, error: false });
       } catch (error) {
-        setError(true);
+        setRoomsData({ rooms: [], loading: false, error: true });
         console.log('Could not fetch', error);
-        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
+  const { rooms, loading, error } = roomsData;
+
   return (
     <div className='container'>
       <div className='row justify-content-center mt-5'>
         {loading ? (
           <Loader />
-        ) : rooms.length > 1  ? (
-          rooms.map((room) => {
-            return (
-              <div className='col-md-9 mt-3'>
-                <Room room={room} />
-              </div>
-            );
-          })
-        ) : (
+        ) : error ? (
           <Error />
+        ) : rooms.length > 0 ? (
+          rooms.map((room) => (
+            <div key={room.id} className='col-md-9 mt-3'>
+              <Room room={room} />
+            </div>
+          ))
+        ) : (
+          <p>No rooms available.</p>
         )}
       </div>
     </div>
@@ -50,4 +50,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-

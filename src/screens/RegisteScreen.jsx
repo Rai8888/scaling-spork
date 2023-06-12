@@ -5,23 +5,29 @@ import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
 
 const RegisterScreen = () => {
-  const [state, setState] = useState({ name: '', email: '', password: '', cpassword: '', passwordError: false });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    cpassword: '',
+    passwordError: false,
+  });
 
   useEffect(() => {
-    if (state.password !== state.cpassword) {
-      setState((prevState) => ({ ...prevState, passwordError: true }));
+    if (formData.password !== formData.cpassword) {
+      setFormData((prevFormData) => ({ ...prevFormData, passwordError: true }));
     } else {
-      setState((prevState) => ({ ...prevState, passwordError: false }));
+      setFormData((prevFormData) => ({ ...prevFormData, passwordError: false }));
     }
-  }, [state.password, state.cpassword]);
+  }, [formData.password, formData.cpassword]);
 
   const register = () => {
-    if (state.password === state.cpassword) {
+    if (formData.password === formData.cpassword) {
       const userRegister = {
-        name: state.name,
-        email: state.email,
-        password: state.password,
-        cpassword: state.cpassword,
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        cpassword: formData.cpassword,
       };
       console.log(userRegister);
     } else {
@@ -35,10 +41,10 @@ const RegisterScreen = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setState((prevState) => ({ ...prevState, [name]: value }));
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const { name, email, password, cpassword, passwordError } = state;
+  const { name, email, password, cpassword, passwordError } = formData;
 
   return (
     <div>

@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const LoginScreen = () => {
-  const [state, setState] = useState({ email: '', password: '' });
+  const [formData, setFormData] = useState({ email: '', password: '' });
 
   const login = () => {
-    const userLogin = {
-      email: state.email,
-      password: state.password,
-    };
-    console.log(userLogin);
+    console.log(formData);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setState((prevState) => ({ ...prevState, [name]: value }));
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const { email, password } = state;
+  const { email, password } = formData;
 
   return (
     <div>
