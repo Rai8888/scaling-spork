@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import BookingScreen from './screens/BookingScreen';
 import HomeScreen from './screens/HomeScreen';
+import LandingScreen from './screens/LandingScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisteScreen';
 
@@ -11,6 +12,7 @@ function App() {
     <div className='App'>
       <Navbar />
       <Routes>
+        <Route path='/' element={<LandingScreen />} />
         <Route path='/booking' element={<HomeScreen />} />
         <Route path='/booking/:roomid/:fromDate/:toDate' element={<BookingScreen />} />
         <Route path='/register' element={<RegisterScreen />} />
