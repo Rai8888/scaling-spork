@@ -1,8 +1,5 @@
-import { useState, useEffect } from 'react';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-
-const MySwal = withReactContent(Swal);
+import { useEffect, useState } from 'react';
+import { Alert } from 'react-bootstrap';
 
 const RegisterScreen = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +8,7 @@ const RegisterScreen = () => {
     password: '',
     cpassword: '',
     passwordError: false,
+    showAlert: false
   });
 
   useEffect(() => {
@@ -27,15 +25,11 @@ const RegisterScreen = () => {
         name: formData.name,
         email: formData.email,
         password: formData.password,
-        cpassword: formData.cpassword,
+        cpassword: formData.cpassword
       };
       console.log(userRegister);
     } else {
-      MySwal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Passwords do not match!',
-      });
+      setFormData((prevFormData) => ({ ...prevFormData, showAlert: true }));
     }
   };
 
@@ -44,7 +38,7 @@ const RegisterScreen = () => {
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const { name, email, password, cpassword, passwordError } = formData;
+  const { name, email, password, cpassword, passwordError, showAlert } = formData;
 
   return (
     <div>
@@ -52,22 +46,8 @@ const RegisterScreen = () => {
         <div className='col-md-5 mt-5'>
           <div className='bs'>
             <h2>Register</h2>
-            <input
-              type='text'
-              className='form-control'
-              placeholder='name'
-              name='name'
-              value={name}
-              onChange={handleChange}
-            />
-            <input
-              type='email'
-              className='form-control'
-              placeholder='email'
-              name='email'
-              value={email}
-              onChange={handleChange}
-            />
+            <input type='text' className='form-control' placeholder='name' name='name' value={name} onChange={handleChange} />
+            <input type='email' className='form-control' placeholder='email' name='email' value={email} onChange={handleChange} />
             <input
               type='password'
               className='form-control'
@@ -85,6 +65,11 @@ const RegisterScreen = () => {
               onChange={handleChange}
             />
             {passwordError && <p className='text-danger'>Passwords do not match!</p>}
+            {showAlert && (
+              <Alert variant='danger' onClose={() => setFormData((prevFormData) => ({ ...prevFormData, showAlert: false }))} dismissible>
+                Passwords do not match!
+              </Alert>
+            )}
             <button className='btn btn-primary mt-3' onClick={register}>
               Register
             </button>
@@ -96,3 +81,4 @@ const RegisterScreen = () => {
 };
 
 export default RegisterScreen;
+
