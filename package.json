@@ -17,8 +17,6 @@
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.8",
     "router-dom": "^2.2.11",
-    "sweetalert2": "^11.7.12",
-    "sweetalert2-react-content": "^5.0.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -49,3 +47,4 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
+
