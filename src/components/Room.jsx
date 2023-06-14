@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Carousel from 'react-bootstrap/Carousel';
+import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
 
 const Room = ({ room, fromDate, toDate }) => {
@@ -28,6 +31,29 @@ const Room = ({ room, fromDate, toDate }) => {
           View details
         </button>
       </div>
+
+      <Modal show={show} onHide={handleClose} size='lg'>
+        <Modal.Header closeButton>
+          <Modal.Title>{room.id}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Carousel prevLabel='' nextLabel=''>
+            {/* {room.urlImgs.map((urlImg) => {
+              return (
+                <Carousel.Item>
+                  <img className='d-block w-100 bigimg' src={urlImg} alt='Photo Slide' />
+                </Carousel.Item>
+              );
+            })} */}
+          </Carousel>
+          {/* <p>{room.description}</p> */}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
