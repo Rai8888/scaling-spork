@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import HashLoader from 'react-spinners/HashLoader';
+import RingLoader from 'react-spinners/RingLoader';
 
 const Loader = () => {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div style={{ marginTop: '200px' }}>
+    <div style={{ margin: '25vh 0 0 56vw' }}>
       <div className='sweet-loading text-center'>
-        <HashLoader color='#36d7b7' loading={loading} size={50} />
+        <RingLoader color='#000000' loading={loading} size={150} />
       </div>
     </div>
   );
