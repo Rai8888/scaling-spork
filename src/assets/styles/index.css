@@ -9,6 +9,8 @@
 
 body {
   font-family: 'JetBrains Mono', monospace;
+  background-color: #161616;
+  color: #e7e7e7;
 }
 
 :root {
@@ -70,3 +72,4 @@ h2 {
   font-weight: bold !important;
   text-align: center;
 }
+
