@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Error from '../components/Error';
 import Loader from '../components/Loader';
 import Room from '../components/Room';
+
 const { RangePicker } = DatePicker;
 
 const HomeScreen = () => {
@@ -14,8 +15,7 @@ const HomeScreen = () => {
     error: false
   });
 
-  const [fromDate, setFromDate] = useState();
-  const [toDate, setToDate] = useState();
+  const [dateRange, setDateRange] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,8 +35,8 @@ const HomeScreen = () => {
   const { rooms, loading, error } = roomsData;
 
   const filterByDate = (dates) => {
-    setFromDate(moment(dates[0]).format('DD-MM-YYYY'));
-    setToDate(moment(dates[1]).format('DD-MM-YYYY'));
+    const formattedDates = dates.map((date) => moment(date).format('DD-MM-YYYY'));
+    setDateRange(formattedDates);
   };
 
   return (
@@ -55,7 +55,7 @@ const HomeScreen = () => {
         ) : rooms.length > 0 ? (
           rooms.map((room) => (
             <div key={room.id} className='col-md-9 mt-3'>
-              <Room room={room} fromDate={fromDate} toDate={toDate} />
+              <Room room={room} fromDate={dateRange[0]} toDate={dateRange[1]} />
             </div>
           ))
         ) : (

@@ -5,30 +5,29 @@ import Error from '../components/Error';
 import Loader from '../components/Loader';
 
 const BookingScreen = ({ match }) => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [room, setRoom] = useState(null);
-
-  const roomId = match.params.roomid; // переобразовать до 18
+  const roomId = match.params.roomid;
   const fromDate = dayjs(match.params.fromDate, 'DD-MM-YYYY');
   const toDate = dayjs(match.params.toDate, 'DD-MM-YYYY');
+  const totalDays = toDate.diff(fromDate, 'day') + 1;
 
-  const totalDays = dayjs(toDate).diff(fromDate, 'day') + 1;
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [room, setRoom] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
-        const response = await axios.post('https://jsonplaceholder.typicode.com/photos', { roomid: match.params.roomid });
+        const response = await axios.post('https://jsonplaceholder.typicode.com/photos', { roomid: roomId });
         setRoom(response.data);
-        setLoading(false);
       } catch (error) {
-        setLoading(false);
         setError(true);
+      } finally {
+        setLoading(false);
       }
     };
+
     fetchData();
-  }, [match.params.roomid]);
+  }, [roomId]);
 
   if (loading) {
     return <Loader />;
@@ -53,8 +52,8 @@ const BookingScreen = ({ match }) => {
 
             <b>
               <p>Name: </p>
-              <p>From Date: {dayjs(match.params.fromDate).format('DD-MM-YYYY')} </p>
-              <p>To Date: {dayjs(match.params.toDate).format('DD-MM-YYYY')} </p>
+              <p>From Date: {fromDate.format('DD-MM-YYYY')}</p>
+              <p>To Date: {toDate.format('DD-MM-YYYY')}</p>
               <p>Max count: </p>
             </b>
           </div>
@@ -63,13 +62,13 @@ const BookingScreen = ({ match }) => {
             <hr />
 
             <b>
-              <p>Total days: {totalDays} </p>
+              <p>Total days: {totalDays}</p>
               <p>Rent per day: </p>
               <p>Total Amount: </p>
             </b>
           </div>
           <div style={{ float: 'right' }}>
-            <button className='btn btn-primary'>Pay now</button> // TODO: делать завпрос реализация
+            <button className='btn btn-primary'>Pay now</button>
           </div>
         </div>
       </div>

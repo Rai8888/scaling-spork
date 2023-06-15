@@ -12,20 +12,19 @@ const RegisterScreen = () => {
   });
 
   useEffect(() => {
-    if (formData.password !== formData.cpassword) {
-      setFormData((prevFormData) => ({ ...prevFormData, passwordError: true }));
-    } else {
-      setFormData((prevFormData) => ({ ...prevFormData, passwordError: false }));
-    }
+    const { password, cpassword } = formData;
+    const passwordError = password !== cpassword;
+    setFormData((prevFormData) => ({ ...prevFormData, passwordError }));
   }, [formData.password, formData.cpassword]);
 
   const register = () => {
-    if (formData.password === formData.cpassword) {
+    const { password, cpassword, name, email } = formData;
+    if (password === cpassword) {
       const userRegister = {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-        cpassword: formData.cpassword
+        name,
+        email,
+        password,
+        cpassword
       };
       console.log(userRegister);
     } else {

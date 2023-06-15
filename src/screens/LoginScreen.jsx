@@ -1,18 +1,20 @@
 import { useState } from 'react';
 
 const LoginScreen = () => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const login = () => {
-    console.log(formData);
+    console.log({ email, password });
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   };
 
-  const { email, password } = formData;
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
   return (
     <div>
@@ -20,22 +22,8 @@ const LoginScreen = () => {
         <div className='col-md-5 mt-5'>
           <div className='bs'>
             <h2>Login</h2>
-            <input
-              type='email'
-              className='form-control'
-              placeholder='Email'
-              name='email'
-              value={email}
-              onChange={handleChange}
-            />
-            <input
-              type='password'
-              className='form-control'
-              placeholder='Password'
-              name='password'
-              value={password}
-              onChange={handleChange}
-            />
+            <input type='email' className='form-control' placeholder='Email' value={email} onChange={handleEmailChange} />
+            <input type='password' className='form-control' placeholder='Password' value={password} onChange={handlePasswordChange} />
             <button className='btn btn-primary mt-3' onClick={login}>
               Login
             </button>
@@ -47,3 +35,4 @@ const LoginScreen = () => {
 };
 
 export default LoginScreen;
+

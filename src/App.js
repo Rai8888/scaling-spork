@@ -4,14 +4,12 @@ import NavBar from './components/Navbar.jsx';
 import { routes } from './routes/routes';
 
 function App() {
+  const renderRoutes = routes.map((route, index) => <Route key={index} path={route.path} element={route.element} />);
+
   return (
     <div className='App'>
       <NavBar />
-      <Routes>
-        {routes.map((route, index) => (
-          <Route key={index} path={route.path} element={route.element} />
-        ))}
-      </Routes>
+      <Routes>{renderRoutes}</Routes>
     </div>
   );
 }
