@@ -1,5 +1,5 @@
 import axios from 'axios';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 import Error from '../components/Error';
 import Loader from '../components/Loader';
@@ -10,10 +10,10 @@ const BookingScreen = ({ match }) => {
   const [room, setRoom] = useState(null);
 
   const roomId = match.params.roomid; // переобразовать до 18
-  const fromDate = match.params.fromDate;
-  const toDate = match.params.toDate;
+  const fromDate = dayjs(match.params.fromDate, 'DD-MM-YYYY');
+  const toDate = dayjs(match.params.toDate, 'DD-MM-YYYY');
 
-  const totalDays = moment.duration(toDate.diff(fromDate));
+  const totalDays = dayjs(toDate).diff(fromDate, 'day') + 1;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,8 +53,8 @@ const BookingScreen = ({ match }) => {
 
             <b>
               <p>Name: </p>
-              <p>From Date: {match.params.fromDate} </p>
-              <p>To Date: {match.params.toDate} </p>
+              <p>From Date: {dayjs(match.params.fromDate).format('DD-MM-YYYY')} </p>
+              <p>To Date: {dayjs(match.params.toDate).format('DD-MM-YYYY')} </p>
               <p>Max count: </p>
             </b>
           </div>
@@ -67,6 +67,9 @@ const BookingScreen = ({ match }) => {
               <p>Rent per day: </p>
               <p>Total Amount: </p>
             </b>
+          </div>
+          <div style={{ float: 'right' }}>
+            <button className='btn btn-primary'>Pay now</button> // TODO: делать завпрос реализация
           </div>
         </div>
       </div>
