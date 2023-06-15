@@ -42,7 +42,7 @@ const BookingScreen = ({ match }) => {
       <div className='row'>
         <div className='col-md-5'>
           <h1>{room.title}</h1>
-          <img src={room.thumbnailUrl} alt='Room Photo' className='bigimg' />
+          <img src={room.thumbnailUrl} alt='Room' className='bigimg' />
         </div>
 
         <div className='col-md-5'>

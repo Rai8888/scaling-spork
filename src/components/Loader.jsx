@@ -2,7 +2,7 @@ import { useState } from 'react';
 import RingLoader from 'react-spinners/RingLoader';
 
 const Loader = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading] = useState(true);
 
   return (
     <div style={{ margin: '25vh 0 0 56vw' }}>

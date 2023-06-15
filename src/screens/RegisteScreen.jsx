@@ -15,7 +15,7 @@ const RegisterScreen = () => {
     const { password, cpassword } = formData;
     const passwordError = password !== cpassword;
     setFormData((prevFormData) => ({ ...prevFormData, passwordError }));
-  }, [formData.password, formData.cpassword]);
+  }, [formData.password, formData.cpassword, formData]);
 
   const register = () => {
     const { password, cpassword, name, email } = formData;
