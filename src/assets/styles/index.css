@@ -9,23 +9,23 @@
 
 body {
   font-family: 'JetBrains Mono', monospace;
-  background-color: #161616;
-  color: #e7e7e7;
+  background-color: #fff;
+  color: #000;
 }
 
 :root {
 }
 
 .navbar {
-  background-color: black !important;
+  background-color: #fff !important;
 }
 
 .nav-link {
-  color: white !important;
+  color: #000 !important;
 }
 
 .navbar-brand {
-  color: white !important;
+  color: #000 !important;
 }
 
 .navbar-nav {

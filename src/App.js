@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './assets/styles/App.css';
+import AppFooter from './components/AppFooter.jsx';
 import NavBar from './components/Navbar.jsx';
 import { routes } from './routes/routes';
 
@@ -10,6 +11,7 @@ function App() {
     <div className='App'>
       <NavBar />
       <Routes>{renderRoutes}</Routes>
+      <AppFooter />
     </div>
   );
 }
