@@ -14,7 +14,6 @@ const RegisterScreen = () => {
     passwordError: false,
     showAlert: false
   });
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // Состояние аутентификации
 
   useEffect(() => {
     const { password, cpassword } = formData;
@@ -42,17 +41,18 @@ const RegisterScreen = () => {
         });
 
         if (response.ok) {
-          // Успешная регистрация
-          setIsAuthenticated(true); // Установка статуса аутентификации в true
-          navigate('/'); // Перенаправление на главную страницу
+          const data = await response.json();
+          const token = data.token; 
+
+          localStorage.setItem('token', token);
+
+          navigate('/'); 
         } else {
-          // Получаем сообщение об ошибке от сервера
           const errorMessage = await response.text();
           console.log('Error:', errorMessage);
           setFormData((prevFormData) => ({ ...prevFormData, showAlert: true }));
         }
       } catch (error) {
-        // Обработка ошибок сети или других исключений
         console.log('Error:', error);
         setFormData((prevFormData) => ({ ...prevFormData, showAlert: true }));
       }
@@ -67,26 +67,6 @@ const RegisterScreen = () => {
   };
 
   const { name, email, password, cpassword, passwordError, showAlert } = formData;
-
-  // Если пользователь аутентифицирован, отображаем ссылку на профиль
-  if (isAuthenticated) {
-    return (
-      <div>
-        <div className='row justify-content-center mt-5'>
-          <div className='col-md-5 mt-5'>
-            <div className='bs'>
-              <h2>Profile</h2>
-              <p>Welcome, {name}!</p>
-              <Link to='/profile'>Go to Profile</Link>
-              <button className='btn btn-primary mt-3' onClick={() => setIsAuthenticated(false)}>
-                Logout
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div>

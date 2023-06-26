@@ -23,7 +23,11 @@ const LoginScreen = () => {
       });
 
       if (response.ok) {
-        // Успешный вход в систему
+        const data = await response.json();
+        const token = data.token; 
+
+        localStorage.setItem('token', token);
+        
         navigate('/');
       } else {
         const data = await response.json();

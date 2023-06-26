@@ -1,10 +1,25 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!!token) {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setIsAuthenticated(false);
+  };
+
   return (
     <div>
       <nav className='navbar navbar-expand-lg'>
-        <Link className='navbar-brand' href='/'>
+        <Link className='navbar-brand' to='/'>
           Hotel Booking
         </Link>
         <button
@@ -20,16 +35,33 @@ const Navbar = () => {
         </button>
         <div className='collapse navbar-collapse' id='navbarNav'>
           <ul className='navbar-nav'>
-            <li className='nav-item active'>
-              <Link className='nav-link' to='/register'>
-                Register
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link className='nav-link' to='/login'>
-                Login
-              </Link>
-            </li>
+            {isAuthenticated ? (
+              <>
+                <li className='nav-item'>
+                  <Link className='nav-link' to='/profile'>
+                    Go to Profile
+                  </Link>
+                </li>
+                <li className='nav-item'>
+                  <button className='nav-link' onClick={handleLogout}>
+                    Выход
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className='nav-item active'>
+                  <Link className='nav-link' to='/register'>
+                    Регистрация
+                  </Link>
+                </li>
+                <li className='nav-item'>
+                  <Link className='nav-link' to='/login'>
+                    Вход
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </nav>
@@ -38,4 +70,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
