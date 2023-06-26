@@ -5,6 +5,7 @@ import Error from '../components/Error';
 import Loader from '../components/Loader';
 
 const BookingScreen = ({ match }) => {
+  const apiUrl = process.env.REACT_APP_API_URL;
   const roomId = match.params.roomid;
   const fromDate = dayjs(match.params.fromDate, 'DD-MM-YYYY');
   const toDate = dayjs(match.params.toDate, 'DD-MM-YYYY');
@@ -17,7 +18,7 @@ const BookingScreen = ({ match }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post('https://jsonplaceholder.typicode.com/photos', { roomid: roomId });
+        const response = await axios.post(`${apiUrl}/api/v1/hotel/room/`, { roomid: roomId });
         setRoom(response.data);
       } catch (error) {
         setError(true);
