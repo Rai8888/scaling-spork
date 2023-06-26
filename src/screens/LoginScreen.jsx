@@ -14,7 +14,7 @@ const LoginScreen = () => {
       const response = await fetch(`${apiUrl}/api/v1/accounts/login/`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           email,
@@ -24,10 +24,11 @@ const LoginScreen = () => {
 
       if (response.ok) {
         const data = await response.json();
-        const token = data.token; 
+        const access = data.access; 
+        const refresh = data.refresh
 
-        localStorage.setItem('token', token);
-        
+        localStorage.setItem('access', access);
+        localStorage.setItem('refresh', refresh);        
         navigate('/');
       } else {
         const data = await response.json();

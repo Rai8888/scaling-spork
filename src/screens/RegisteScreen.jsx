@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Alert } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterScreen = () => {
   const navigate = useNavigate();
@@ -42,9 +42,12 @@ const RegisterScreen = () => {
 
         if (response.ok) {
           const data = await response.json();
-          const token = data.token; 
+          
+          const access = data.access; 
+          const refresh = data.refresh
 
-          localStorage.setItem('token', token);
+          localStorage.setItem('access', access);
+          localStorage.setItem('refresh', refresh);
 
           navigate('/'); 
         } else {

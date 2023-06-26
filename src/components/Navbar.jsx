@@ -5,14 +5,17 @@ const Navbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!!token) {
+    const access = localStorage.getItem('access');
+    const refresh = localStorage.getItem('refresh');
+
+    if (access && refresh) {
       setIsAuthenticated(true);
     }
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('access');
+    localStorage.removeItem('refresh');
     setIsAuthenticated(false);
   };
 
