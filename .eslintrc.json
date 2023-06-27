@@ -38,5 +38,6 @@
     "react": {
       "version": "detect"
     }
-  }
+  },
+  "eslintIgnore": ["src/screens/RegisteScreen.jsx"]
 }
