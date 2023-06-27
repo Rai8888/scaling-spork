@@ -21,10 +21,12 @@ body {
 }
 
 .nav-link {
+  margin-right: 3rem;
   color: #000 !important;
 }
 
 .navbar-brand {
+  margin-left: 3rem !important;
   color: #000 !important;
 }
 
