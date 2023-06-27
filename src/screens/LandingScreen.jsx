@@ -48,13 +48,13 @@ const LandingScreen = () => {
                 <img src={rooms} alt='rooms' />
               </div>
               <div className={styles.col2}>
-                <div className={styles.textBox}>
+                <div className={styles.textBox_rooms}>
                   <h2 className={styles.headline}>Rooms</h2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto enim mollitia dolorum necessitatibus vero sunt
                     deleniti minus vel, non quasi?
                   </p>
-                  <button className={styles.btn}>Explore Now</button>
+                  <button className={styles.btn_green}>Explore Now</button>
                 </div>
               </div>
             </div>
@@ -71,11 +71,11 @@ const LandingScreen = () => {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto enim mollitia dolorum necessitatibus vero sunt
                     deleniti minus vel, non quasi?
                   </p>
-                  <button className={styles.btn}>Dine With Us</button>
+                  <button className={styles.btn_dining}>Dine With Us</button>
                 </div>
               </div>
               <div className={styles.col2}>
-                <img src={restaurant} alt='Restaurant' />
+                <img src={restaurant} alt='Restaurant'  />
               </div>
             </div>
           </div>
