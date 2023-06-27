@@ -1,19 +1,19 @@
-import axios from 'axios';
-import dayjs from 'dayjs';
-import { useEffect, useState } from 'react';
-import Error from '../components/Error';
-import Loader from '../components/Loader';
+import axios from "axios";
+import dayjs from "dayjs";
+import { useEffect, useState } from "react";
+import Error from "../components/Error";
+import Loader from "../components/Loader";
 
 const BookingScreen = ({ match }) => {
   const apiUrl = process.env.REACT_APP_API_URL;
   const roomId = match.params.roomid;
-  const fromDate = dayjs(match.params.fromDate, 'DD-MM-YYYY');
-  const toDate = dayjs(match.params.toDate, 'DD-MM-YYYY');
-  const totalDays = toDate.diff(fromDate, 'day') + 1;
+  const fromDate = dayjs(match.params.fromDate, "DD-MM-YYYY");
+  const toDate = dayjs(match.params.toDate, "DD-MM-YYYY");
+  const totalDays = toDate.diff(fromDate, "day") + 1;
 
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [room, setRoom] = useState(null);
+  const [ loading, setLoading ] = useState(true);
+  const [ error, setError ] = useState(false);
+  const [ room, setRoom ] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +28,7 @@ const BookingScreen = ({ match }) => {
     };
 
     fetchData();
-  }, [roomId]);
+  }, [ roomId, apiUrl ]);
 
   if (loading) {
     return <Loader />;
@@ -53,8 +53,8 @@ const BookingScreen = ({ match }) => {
 
             <b>
               <p>Name: </p>
-              <p>From Date: {fromDate.format('DD-MM-YYYY')}</p>
-              <p>To Date: {toDate.format('DD-MM-YYYY')}</p>
+              <p>From Date: {fromDate.format("DD-MM-YYYY")}</p>
+              <p>To Date: {toDate.format("DD-MM-YYYY")}</p>
               <p>Max count: </p>
             </b>
           </div>
@@ -68,7 +68,7 @@ const BookingScreen = ({ match }) => {
               <p>Total Amount: </p>
             </b>
           </div>
-          <div style={{ float: 'right' }}>
+          <div style={{ float: "right" }}>
             <button className='btn btn-primary'>Pay now</button>
           </div>
         </div>

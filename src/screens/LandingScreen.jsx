@@ -1,16 +1,16 @@
-import img1 from '../assets/images/blog-list-img-1.jpg';
-import img2 from '../assets/images/blog-list-img-2.jpg';
-import restaurant from '../assets/images/restaurant.jpg';
-import rooms from '../assets/images/rooms.jpg';
-import styles from '../assets/styles/LandingScreen.module.css';
-import { useNavigate } from 'react-router-dom';
+import img1 from "../assets/images/blog-list-img-1.jpg";
+import img2 from "../assets/images/blog-list-img-2.jpg";
+import restaurant from "../assets/images/restaurant.jpg";
+import rooms from "../assets/images/rooms.jpg";
+import styles from "../assets/styles/LandingScreen.module.css";
+import { useNavigate } from "react-router-dom";
 
 const LandingScreen = () => {
 
   const navigate = useNavigate();
 
   const handleRedirect = () => {
-    navigate('/booking')
+    navigate("/booking");
   };
 
   return (

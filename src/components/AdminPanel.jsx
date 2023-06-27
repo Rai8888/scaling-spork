@@ -1,22 +1,18 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import Loader from './Loader';
-import Error from './Error';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Loader from "./Loader";
 
 const AdminPanel = () => {
-  const [bookings, setBookings] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  
+  const [ bookings, setBookings ] = useState([]);
+  const [ loading, setLoading ] = useState(true);
 
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/hotels');
+        const response = await axios.get("http://localhost:3000/hotels");
         setBookings(response.data);
         setLoading(false);
       } catch (error) {
-        setError(true);
         setLoading(false);
       }
     };
@@ -25,7 +21,7 @@ const AdminPanel = () => {
   }, []);
 
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
   
   return (

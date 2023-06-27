@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const[ isAuthenticated, setIsAuthenticated ] = useState(false);
 
   useEffect(() => {
-    const access = localStorage.getItem('access');
-    const refresh = localStorage.getItem('refresh');
+    const access = localStorage.getItem("access");
+    const refresh = localStorage.getItem("refresh");
 
     if (access && refresh) {
       setIsAuthenticated(true);
@@ -14,8 +14,8 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('access');
-    localStorage.removeItem('refresh');
+    localStorage.removeItem("access");
+    localStorage.removeItem("refresh");
     setIsAuthenticated(false);
   };
 
