@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginScreen = () => {
   const navigate = useNavigate();
   const apiUrl = process.env.REACT_APP_API_URL;
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+  const [ error, setError ] = useState("");
 
   const login = async () => {
     try {
       const response = await fetch(`${apiUrl}/api/v1/accounts/login/`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           email,
@@ -24,13 +24,13 @@ const LoginScreen = () => {
 
       if (response.ok) {
         // Успешный вход в систему
-        navigate('/');
+        navigate("/");
       } else {
         const data = await response.json();
         setError(data.detail);
       }
     } catch (error) {
-      setError('Something went wrong, please try again later');
+      setError("Something went wrong, please try again later");
     }
   };
 

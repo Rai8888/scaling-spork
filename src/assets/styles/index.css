@@ -21,7 +21,7 @@ body {
 }
 
 .nav-link {
-  margin-right: 3rem;
+  margin-right: 3rem !important;
   color: #000 !important;
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 .smailing {
-  height: 200px;
+  height: 200px !important;
   width: 100% !important;
   border-radius: 5px;
 }
@@ -74,4 +74,9 @@ h2 {
   font-weight: bold !important;
   text-align: center;
 }
+
+.social-icon {
+  margin: 0.5rem;
+}
+
 

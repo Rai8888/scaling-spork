@@ -1,31 +1,31 @@
-import { DatePicker } from 'antd';
-import axios from 'axios';
-import moment from 'moment';
-import { useEffect, useState } from 'react';
-import Error from '../components/Error';
-import Loader from '../components/Loader';
-import Room from '../components/Room';
+import { DatePicker } from "antd";
+import axios from "axios";
+import moment from "moment";
+import { useEffect, useState } from "react";
+import Error from "../components/Error";
+import Loader from "../components/Loader";
+import Room from "../components/Room";
 
 const { RangePicker } = DatePicker;
 
 const HomeScreen = () => {
-  const [roomsData, setRoomsData] = useState({
+  const [ roomsData, setRoomsData ] = useState({
     rooms: [],
     loading: true,
     error: false
   });
 
-  const [dateRange, setDateRange] = useState([]);
+  const [ dateRange, setDateRange ] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/photos');
+        const response = await axios.get("https://jsonplaceholder.typicode.com/photos");
         const data = response.data;
         setRoomsData({ rooms: data, loading: false, error: false });
       } catch (error) {
         setRoomsData({ rooms: [], loading: false, error: true });
-        console.log('Could not fetch', error);
+        console.log("Could not fetch", error);
       }
     };
 
@@ -35,7 +35,7 @@ const HomeScreen = () => {
   const { rooms, loading, error } = roomsData;
 
   const filterByDate = (dates) => {
-    const formattedDates = dates.map((date) => moment(date).format('DD-MM-YYYY'));
+    const formattedDates = dates.map((date) => moment(date).format("DD-MM-YYYY"));
     setDateRange(formattedDates);
   };
 

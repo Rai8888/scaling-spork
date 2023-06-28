@@ -1,8 +1,8 @@
-import { Button, Result } from 'antd';
+import { Button, Result } from "antd";
 
 const NotFound = () => {
-  const titleStyle = { color: '#000' };
-  const buttonStyle = { backgroundColor: '#000', color: '#fff' };
+  const titleStyle = { color: "#000" };
+  const buttonStyle = { backgroundColor: "#000", color: "#fff" };
   return (
     <Result
       status='404'

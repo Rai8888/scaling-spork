@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Carousel from 'react-bootstrap/Carousel';
-import Modal from 'react-bootstrap/Modal';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Carousel from "react-bootstrap/Carousel";
+import Modal from "react-bootstrap/Modal";
+import { Link } from "react-router-dom";
 
 const Room = ({ room, fromDate, toDate }) => {
-  const [show, setShow] = useState(false);
+  const [ show, setShow ] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -23,7 +23,7 @@ const Room = ({ room, fromDate, toDate }) => {
           <p>Type: {room.albumId}</p>
         </b>
       </div>
-      <div style={{ textAlign: 'right' }}>
+      <div style={{ textAlign: "right" }}>
         <Link to={`/book/${room.id}/${fromDate}/${toDate}`}>
           <button className='btn btn-primary m-2'>Book now</button>
         </Link>
