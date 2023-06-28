@@ -1,13 +1,13 @@
-import { FacebookOutlined, InstagramOutlined, LinkedinOutlined, TwitterOutlined } from '@ant-design/icons';
-import { Col, Layout, Row } from 'antd';
+import { FacebookOutlined, InstagramOutlined, LinkedinOutlined, TwitterOutlined } from "@ant-design/icons";
+import { Col, Layout, Row } from "antd";
 
 const { Footer } = Layout;
 
 const AppFooter = () => {
   return (
-    <Footer style={{ backgroundColor: '#f0f2f5' }}>
+    <Footer style={{ backgroundColor: "#f0f2f5" }}>
       <Row justify='center'>
-        <Col span={24} style={{ textAlign: 'center' }}>
+        <Col span={24} style={{ textAlign: "center" }}>
           <h2>About</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fringilla fringilla velit, vel tempor lorem eleifend non.
@@ -16,17 +16,17 @@ const AppFooter = () => {
         </Col>
       </Row>
       <Row justify='center'>
-        <Col span={24} style={{ textAlign: 'center' }}>
+        <Col span={24} style={{ textAlign: "center" }}>
           <h2>Connect with Us</h2>
           <div>
             <a href='#'>
-              <FacebookOutlined className='social-icon' />
+              <FacebookOutlined className='social-icon' style={{ marginRight: "0.5rem" }}  />
             </a>
             <a href='#'>
-              <TwitterOutlined className='social-icon' />
+              <TwitterOutlined className='social-icon' style={{ marginRight: "0.5rem" }} />
             </a>
             <a href='#'>
-              <InstagramOutlined className='social-icon' />
+              <InstagramOutlined className='social-icon' style={{ marginRight: "0.5rem" }} />
             </a>
             <a href='#'>
               <LinkedinOutlined className='social-icon' />
@@ -35,7 +35,7 @@ const AppFooter = () => {
         </Col>
       </Row>
       <Row justify='center'>
-        <Col span={24} style={{ textAlign: 'center' }}>
+        <Col span={24} style={{ textAlign: "center",  paddingTop: "1rem" }}>
           <p>© 2023 Your Hotel. All rights reserved.</p>
         </Col>
       </Row>

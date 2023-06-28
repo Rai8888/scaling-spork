@@ -1,10 +1,18 @@
-import img1 from '../assets/images/blog-list-img-1.jpg';
-import img2 from '../assets/images/blog-list-img-2.jpg';
-import restaurant from '../assets/images/restaurant.jpg';
-import rooms from '../assets/images/rooms.jpg';
-import styles from '../assets/styles/LandingScreen.module.css';
+import img1 from "../assets/images/blog-list-img-1.jpg";
+import img2 from "../assets/images/blog-list-img-2.jpg";
+import restaurant from "../assets/images/restaurant.jpg";
+import rooms from "../assets/images/rooms.jpg";
+import styles from "../assets/styles/LandingScreen.module.css";
+import { useNavigate } from "react-router-dom";
 
 const LandingScreen = () => {
+
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    navigate("/booking");
+  };
+
   return (
     <div>
       <div id='hero' className={styles.hero}>
@@ -14,7 +22,7 @@ const LandingScreen = () => {
               <span>Hotel</span>
               <span>Booking</span>
             </h1>
-            <button className={styles.btn}>Book a Room</button>
+            <button className={styles.btn} onClick={() => handleRedirect()}>Book a Room</button>
           </div>
         </div>
       </div>
@@ -48,13 +56,13 @@ const LandingScreen = () => {
                 <img src={rooms} alt='rooms' />
               </div>
               <div className={styles.col2}>
-                <div className={styles.textBox}>
+                <div className={styles.textBox_rooms}>
                   <h2 className={styles.headline}>Rooms</h2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto enim mollitia dolorum necessitatibus vero sunt
                     deleniti minus vel, non quasi?
                   </p>
-                  <button className={styles.btn}>Explore Now</button>
+                  <button className={styles.btn_green}>Explore Now</button>
                 </div>
               </div>
             </div>
@@ -71,11 +79,11 @@ const LandingScreen = () => {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto enim mollitia dolorum necessitatibus vero sunt
                     deleniti minus vel, non quasi?
                   </p>
-                  <button className={styles.btn}>Dine With Us</button>
+                  <button className={styles.btn_dining}>Dine With Us</button>
                 </div>
               </div>
               <div className={styles.col2}>
-                <img src={restaurant} alt='Restaurant' />
+                <img src={restaurant} alt='Restaurant'  />
               </div>
             </div>
           </div>

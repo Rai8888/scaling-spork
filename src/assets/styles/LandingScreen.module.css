@@ -1,3 +1,4 @@
+
 .row {
   display: flex;
   align-items: center;
@@ -6,7 +7,7 @@
 .col2 {
   margin-bottom: 5rem;
   flex-basis: 50%;
-  min-width: 30rem;
+  /* min-width: 30rem; */
 }
 
 .infoText {
@@ -49,7 +50,18 @@
   display: block;
 }
 
-.btn {
+.textBox_rooms {
+  margin-left: 2rem;
+  text-align: justify;
+}
+
+.infoText, .textBox {
+  margin-right: 2rem;
+  text-align: justify;
+}
+
+
+.btn, .btn_dining, .btn_green {
   display: inline-block;
   background: transparent;
   border: 0.2rem solid #fff;
@@ -63,32 +75,24 @@
   letter-spacing: 0.2rem;
   overflow: hidden;
   position: relative;
+   cursor: pointer;
 }
 
 .btn:hover {
-  cursor: pointer;
   background-color: #455d58;
 }
 
-.btn-green::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -10%;
-  width: 0;
-  height: 100%;
-  transform: skewX(25deg);
-  z-index: -1;
-  transition: width 0.7s;
+.btn_dining {
+  border: 0.2rem solid  rgb(69, 93, 88, 0.5);
 }
 
-.btn-green::before {
+.btn_dining:hover {
+  background-color: #455d58;
+}
+
+.btn_green:hover {
   background-color: #fff;
-}
-
-.btn-green:hover::before {
-  width: 120%;
-}
+} 
 
 .imageGroup img {
   width: 300px;
@@ -103,5 +107,4 @@
 .rooms {
   margin-top: 150px;
   background-color: #455d58;
-}
-
+} 
