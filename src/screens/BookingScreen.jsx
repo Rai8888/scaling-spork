@@ -18,7 +18,7 @@ const BookingScreen = ({ match }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post("https://jsonplaceholder.typicode.com/photos", { roomid: roomId });
+        const response = await axios.post(`${apiUrl}/api/v1/hotel/room/`, { roomid: roomId });
         setRoom(response.data);
       } catch (error) {
         setError(true);
@@ -26,8 +26,9 @@ const BookingScreen = ({ match }) => {
         setLoading(false);
       }
     };
+
     fetchData();
-  }, [ roomId ]);
+  }, [ roomId, apiUrl ]);
 
   if (loading) {
     return <Loader />;

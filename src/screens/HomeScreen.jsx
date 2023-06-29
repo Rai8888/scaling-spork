@@ -9,7 +9,6 @@ import Room from "../components/Room";
 const { RangePicker } = DatePicker;
 
 const HomeScreen = () => {
-
   const apiUrl = process.env.REACT_APP_API_URL;
 
   const [ roomsData, setRoomsData ] = useState({
@@ -23,7 +22,6 @@ const HomeScreen = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://jsonplaceholder.typicode.com/photos");
         const response = await axios.get(`${apiUrl}/api/v1/hotel/room/`);
         const data = response.data;
         setRoomsData({ rooms: data, loading: false, error: false });
@@ -40,8 +38,6 @@ const HomeScreen = () => {
   const { rooms, loading, error } = roomsData;
 
   const filterByDate = (dates) => {
-    const formattedDates = dates.map((date) => moment(date).format("DD-MM-YYYY"));
-    setDateRange(formattedDates);
     if (dates) {
       const formattedDates = dates.map((date) =>
         moment(date).format("DD-MM-YYYY")
