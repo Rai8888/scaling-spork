@@ -5,9 +5,12 @@
 }
 
 .col2 {
-  margin-bottom: 5rem;
   flex-basis: 50%;
-  /* min-width: 30rem; */
+}
+
+.col2 p:first-child {
+  margin-top: 6rem;
+
 }
 
 .infoText {
@@ -64,10 +67,10 @@
 .btn, .btn_dining, .btn_green {
   display: inline-block;
   background: transparent;
-  border: 0.2rem solid #fff;
-  border-radius: 0.2rem;
+  border: 0.1rem solid #fff;
+  border-radius: 0.5rem;
   outline: none;
-  padding: 2rem 4rem;
+  padding: 1rem 2rem;
   text-transform: uppercase;
   font-family: inherit;
   font-size: 1.2rem;
@@ -75,6 +78,11 @@
   letter-spacing: 0.2rem;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
+}
+
+.btn_dining, .btn_green {
+  margin-top: 2rem;
    cursor: pointer;
 }
 
@@ -95,7 +103,7 @@
 } 
 
 .imageGroup img {
-  width: 300px;
+  width: 18.75rem;
 }
 
 .imageGroup {

@@ -30,12 +30,14 @@ const LoginScreen = () => {
       });
 
       if (response.ok) {
+
         const data = await response.json();
         const access = data.access; 
         const refresh = data.refresh;
 
         localStorage.setItem("access", access);
         localStorage.setItem("refresh", refresh);        
+
         navigate("/");
       } else {
         const data = await response.json();
