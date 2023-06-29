@@ -5,6 +5,7 @@ import Error from "../components/Error";
 import Loader from "../components/Loader";
 
 const BookingScreen = ({ match }) => {
+  const apiUrl = process.env.REACT_APP_API_URL;
   const roomId = match.params.roomid;
   const fromDate = dayjs(match.params.fromDate, "DD-MM-YYYY");
   const toDate = dayjs(match.params.toDate, "DD-MM-YYYY");

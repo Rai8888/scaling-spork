@@ -4,7 +4,16 @@ import restaurant from "../assets/images/restaurant.jpg";
 import rooms from "../assets/images/rooms.jpg";
 import styles from "../assets/styles/LandingScreen.module.css";
 
+import { useNavigate } from "react-router-dom";
+
 const LandingScreen = () => {
+
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    navigate("/booking");
+  };
+
   return (
     <div>
       <div id='hero' className={styles.hero}>
@@ -14,7 +23,7 @@ const LandingScreen = () => {
               <span>Hotel</span>
               <span>Booking</span>
             </h1>
-            <button className={styles.btn}>Book a Room</button>
+            <button className={styles.btn} onClick={() => handleRedirect()}>Book a Room</button>
           </div>
         </div>
       </div>
