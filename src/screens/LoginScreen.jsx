@@ -10,6 +10,13 @@ const LoginScreen = () => {
   const [ error, setError ] = useState("");
 
   const login = async () => {
+    setError(""); 
+
+    if (!email || !password) {
+      setError("Please enter your email and password.");
+      return;
+    }
+
     try {
       const response = await fetch(`${apiUrl}/api/v1/accounts/login/`, {
         method: "POST",
@@ -23,7 +30,14 @@ const LoginScreen = () => {
       });
 
       if (response.ok) {
-        // Успешный вход в систему
+
+        const data = await response.json();
+        const access = data.access; 
+        const refresh = data.refresh;
+
+        localStorage.setItem("access", access);
+        localStorage.setItem("refresh", refresh);        
+
         navigate("/");
       } else {
         const data = await response.json();
@@ -62,4 +76,3 @@ const LoginScreen = () => {
 };
 
 export default LoginScreen;
-

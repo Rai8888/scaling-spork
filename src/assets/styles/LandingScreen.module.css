@@ -10,6 +10,7 @@
 
 .col2 p:first-child {
   margin-top: 6rem;
+
 }
 
 .infoText {
@@ -62,6 +63,7 @@
   text-align: justify;
 }
 
+
 .btn, .btn_dining, .btn_green {
   display: inline-block;
   background: transparent;
@@ -81,6 +83,7 @@
 
 .btn_dining, .btn_green {
   margin-top: 2rem;
+   cursor: pointer;
 }
 
 .btn:hover {
@@ -88,7 +91,7 @@
 }
 
 .btn_dining {
-  border: 0.1rem solid  rgb(69, 93, 88, 0.5);
+  border: 0.2rem solid  rgb(69, 93, 88, 0.5);
 }
 
 .btn_dining:hover {
