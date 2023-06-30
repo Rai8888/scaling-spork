@@ -7,7 +7,6 @@
 .col2 {
   margin-bottom: 5rem;
   flex-basis: 50%;
-  /* min-width: 30rem; */
 }
 
 .infoText {
@@ -75,7 +74,7 @@
   letter-spacing: 0.2rem;
   overflow: hidden;
   position: relative;
-   cursor: pointer;
+  cursor: pointer;
 }
 
 .btn:hover {
