@@ -50,7 +50,7 @@ const LandingScreen = () => {
                   <h2 className={styles.headline}>Rooms</h2>
                   <p> 
                     With a total space of 153 sqm, this beachfront  Bedroom  offers unobstructed  view, an extended terrace with an outdoor living and dining area with private infinity pool and direct access to the beach. The room offers also a fully equipped kitchen, including a cooker hood, an oven, a dish washer and a built in fridge.
-                  It accommodates a maximum of 6 guests.
+                  It accommodates a maximum of 6 guests. Enjoy your stay with us...
                   </p>
                   <button className={styles.btn_green}>Explore Now</button>
                 </div>
