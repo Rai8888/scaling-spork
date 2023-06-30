@@ -10,7 +10,6 @@
 
 .col2 p:first-child {
   margin-top: 6rem;
-
 }
 
 .infoText {
@@ -83,7 +82,7 @@
 
 .btn_dining, .btn_green {
   margin-top: 2rem;
-   cursor: pointer;
+  cursor: pointer;
 }
 
 .btn:hover {
